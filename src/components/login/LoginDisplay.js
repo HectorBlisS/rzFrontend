@@ -5,7 +5,7 @@ import RocketFund from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
 import firebase from '../../Api/firebase';
 import toastr from 'toastr'
-
+import Nav from '../nav/NavContainer';
 
 class LoginDisplay extends Component {
     state =
@@ -24,7 +24,7 @@ class LoginDisplay extends Component {
                 if (!result.user) return;
                 console.log(result.user);
                 localStorage.setItem("user", JSON.stringify(result.user));
-                this.props.history.push("/home");
+                this.props.history.push("/userprofile");
             }).catch(function (error) {
                 toastr.error(error);
             });
@@ -67,7 +67,7 @@ class LoginDisplay extends Component {
                 .then(user => {
                     localStorage.setItem('user', JSON.stringify(user));
                     toastr.success('Bienvenido ' + user.email);
-                    this.props.history.push("/home");
+                    this.props.history.push("/userprofile");
                 }).catch(error => {
                     toastr.error(error);
                 })
@@ -79,7 +79,8 @@ class LoginDisplay extends Component {
 
     render() {
         return (
-            <div>
+            <div className="back_img">
+                <Nav/>
                 <FlexContainer>
 
                     <LoginForm>

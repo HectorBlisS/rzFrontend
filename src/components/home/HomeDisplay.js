@@ -1,9 +1,10 @@
 import React from 'react';
 import Nav from '../nav/NavContainer';
-import { ProjectCardDisplay } from '../card/ProjectCardDisplay';
+import {ProjectCardDisplay} from '../card/ProjectCardDisplay';
 import CardRelevantes from '../card/CardRelevantes';
 import Banner from './Banner';
 import Categorias from '../categoria/Categoria';
+import './HomePage.css';
 
 class HomeDisplay extends React.Component {
 
@@ -31,7 +32,7 @@ class HomeDisplay extends React.Component {
                 <div className="ancho">
                     <h2 >Proyectos destacados</h2>
                     <CardRelevantes />
-                    <br />
+                    <br/>
                     <div className="fl">
                         <ProjectCardDisplay />
                         <ProjectCardDisplay />

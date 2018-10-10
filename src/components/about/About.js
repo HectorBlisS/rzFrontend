@@ -9,7 +9,7 @@ class About extends React.Component {
         return (
         	<div className='detras'>
 				<Nav />
-				<div className="pad">
+				<div className="padi">
 					<h3 className='tittle'> ¿Qué es CrowdZapopan?</h3>
 					<hr  className="linea_rosa"/>
 					<div className='info'>

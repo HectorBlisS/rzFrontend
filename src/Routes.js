@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import HomePage from './components/home/HomePage';
 import UserProfile from './components/userProfile/UserProfile';
-import CreateProject from './components/createProject/CreateProject';
 import ProjectsPage from './components/projectListing/ProjectsPage';
 import HomeDisplay from './components/home/HomeDisplay';
 import Process from './components/process/Process';
+import {PayDetailDisplay} from './components/payments/PayDetailDisplay';
+import CreateProject from './components/createProject/CreateProject';
 import MarkdownEditor from './components/adminPanel/MarkdownEditor';
 import Participar from './components/participate/Participar';
 import DetailProjectContainer from './components/bliss/detail/DetailProjectContainer';
@@ -13,14 +13,13 @@ import NavContainer from './components/nav/NavContainer';
 import PrivateRoute from './PrivateRouteConnect';
 //import ProjectManagerContainer from './components/projectManager/ProjectManagerContainer';
 import { ManagerPage } from './components/projectManager/ProjectManagerContainer';
-import LoginPage from './components/login/LoginPage';
 //import DetailPage from './components/projectListing/DetailPage';
 import BlissDetailPage from './components/bliss/detail/BlissDetailPage';
 import AdminPanel from './components/adminPanel/adminPanelPage';
 import PublicProfile from './components/publicProfile/publicProfilePage';
 import Cart from './components/payments/Cart';
 import ChatPage from './components/chat/ChatPage';
-import Login2 from './components/login/LoginDisplay';
+import Login from './components/login/LoginDisplay';
 import Registro from './components/login/RegisterDisplay'
 import imgerror from './assets/404.png';
 import About from './components/about/About';
@@ -36,13 +35,11 @@ const noMatch = () => (
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={HomePage} />
-    <Route path="/home" component={HomeDisplay} />
+    <Route exact path="/" component={HomeDisplay} />
       <Route path="/about" component={About}/>
       <Route path="/process" component={Process}/>
       <Route path="/participar" component={Participar}/>
-    <Route exact path="/login" component={LoginPage} />
-    <Route exact path="/login2" component={Login2} />
+    <Route exact path="/login" component={Login} />
     <Route exact path="/registro" component={Registro} />
     <Route path="/new" component={CreateProject} />
     <Route exact path="/explorar" component={ProjectsPage} />
@@ -56,7 +53,7 @@ const Routes = () => (
     <Route path="/admin" component={AdminPanel} />
     <Route path="/cart/:rewardId" component={Cart} />
     <Route path="/chat" component={ChatPage} />
-      <Route path="/mark" component={MarkdownEditor}/>
+      <Route path="/mark" component={PayDetailDisplay}/>
 
     <Route component={noMatch} />
   </Switch>

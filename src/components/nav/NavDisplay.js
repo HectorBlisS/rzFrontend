@@ -6,7 +6,9 @@ import {Link} from 'react-router-dom';
 export const NavDisplay= () => (
     <div className="nav">
         <div>
-            <img src={logo} alt=""/>
+            <Link to="/">
+                <img src={logo} alt=""/>
+            </Link>
             <Link to="/about">
                 <p>Nosotros</p>
             </Link>
@@ -19,7 +21,7 @@ export const NavDisplay= () => (
         </div>
         <div>
             <button>Comienza tu proyecto</button>
-            <a href="/login2">
+            <a href="/login">
                 <span>Log in</span>
             </a>
         </div>
