@@ -1,0 +1,45 @@
+.text-center {
+    text-align: center
+}
+
+.flex-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    margin: 50px;
+}
+
+.inside {
+    position: absolute;
+    text-indent: 5px;
+    margin-top: 7px;
+    font-size: medium;
+}
+
+.inp {
+    width: 100%;
+    margin: 0;
+    text-indent: 20px;
+    transition: all 0.15s ease;
+    border: 1px solid lightslategray;
+    background-color: transparent;
+    color: black;
+}
+
+.inp:focus {
+    box-shadow: 0px 0px 5px 2px lightslategray;
+}
+
+.inp::placeholder {
+    color: dimgray;
+    opacity: 1;
+}
+
+.link {
+    width: 100%;
+    text-align: center;
+    color: rgb(62, 132, 255);
+}

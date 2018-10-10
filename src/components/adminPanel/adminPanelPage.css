@@ -1,29 +1,38 @@
-.adminSections{
+.adminSections {
   height: 100vh;
   width: 70%;
   margin: 0 auto;
 
 }
 
-.adminPanelOpen{
-  padding-left:200px;
+.adminPanelOpen {
+  padding-left: 200px;
   transition: all .5s ease;
 }
-.adminPanelClose{
+
+.adminPanelClose {
 
   transition: all .5s ease;
 }
 
-.adminUsersNavOpened{
+.grayButton span {
+  color: white !important;
+}
+
+
+
+.adminUsersNavOpened {
   top: 64px;
-  width:83%;
+  width: 83%;
   transition: all .5s ease;
 }
-.adminUsersNavClosed{
-  width:100%;
+
+.adminUsersNavClosed {
+  width: 100%;
   transition: all .5s ease;
 }
-.datepicker{
+
+.datepicker {
   width: 40%;
 
 }
@@ -31,41 +40,44 @@
 .projectResp {
   padding-top: 8%;
 }
-.tabla-projects{
-  padding:20px;
-  height:60vh;
-  overflow-y:scroll;
+
+.tabla-projects {
+  padding: 20px;
+  height: 60vh;
+  overflow-y: scroll;
 }
 
-.tabla-projects table{
-  overflow-x: scroll ;
+.tabla-projects table {
+  overflow-x: scroll;
 
 }
-.tabla-projects a{
+
+.tabla-projects a {
 
   text-decoration: none;
   color: black;
 }
-.tabla-projects a:hover{
 
-}
-.tabla-projects a:visited{
+.tabla-projects a:hover {}
+
+.tabla-projects a:visited {
   text-decoration: none;
   color: black;
 }
 
-@media screen and (max-width: 600px){
-  .projectResp{
+@media screen and (max-width: 600px) {
+  .projectResp {
     padding: 25% 11% 0 8%;
   }
-  .adminSections{
+
+  .adminSections {
     width: 100%;
   }
 }
 
 
-.markdown-text{
-height:200px;
-overflow-y:scroll;
+.markdown-text {
+  height: 200px;
+  overflow-y: scroll;
 
 }

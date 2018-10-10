@@ -27,6 +27,10 @@
 	display: block;
 
 }
+.bleu{
+	border:1px dotted #36a6fc;
+	background-color: #36a6fc;
+}
 .orange{
 	border:1px dotted #EC8112;
 	background-color: #EC8112;
@@ -56,8 +60,11 @@
 }
 .space{
 	width: 90%;
-	
-margin-left:5%;}
+margin-left:5%;
+	margin-top: 30px;
+	text-align: center;
+
+}
 
 .box_process{
 	height: 270px;	

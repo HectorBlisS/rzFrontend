@@ -1,34 +1,39 @@
-.nav{
-    width:100%;
+.nav {
+    width: 100%;
     height: 50px;
     padding: 1% 2%;
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(123,134,140,.2);
+    border-bottom: 1px solid rgba(123, 134, 140, .2);
 
 }
-.nav div{
+
+.nav div {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 
 }
-.nav img{
-    height:45px;
-    width:auto;
+
+.nav img {
+    height: 45px;
+    width: auto;
 }
-.nav p{
+
+.nav p {
     margin: 0 30px;
     margin-bottom: 0;
 }
-.nav button{
-    margin-left: 30px;
+
+.nav button {
+    margin-left: 0px;
     margin-right: 50px;
     background-color: #3E84FF;
-    height:40px;
-    color:white;
+    height: 40px;
+    color: white;
     border: none;
     font-size: 14px;
     font-weight: 400;

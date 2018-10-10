@@ -1,15 +1,19 @@
 .detras{
 	background-color: white;
-	padding-bottom: 70px;
 
 }
+.pad{
+	width: 80%;
+	margin: 0 auto;
+}
+
 .info{
 	display: flex;
-	
+
 }
 .inf{
 	padding: 10px 30px 10px 70px;
-	width: 60%;
+	width: 70%;
 	font-size: 20px;
 }
 .log{
@@ -30,6 +34,7 @@
 
 }
 .linea_orange{
+
 	background: linear-gradient(to right, #ff505d 0%, #ffb715 100%);
 	width: 200px;
 	margin: 0 auto;
@@ -40,7 +45,7 @@
 
 }
 .linea_rosa{
-	background: linear-gradient(to right, #b623a0 0%, #d42677 100%);
+	background: linear-gradient(to right, #00eded 0%, #36a6fc 100%);
 	width: 200px;
 	margin: 0 auto;
 	/*position: relative;*/
@@ -48,6 +53,9 @@
 	/*float: left;*/
 	margin-bottom: 20px;
 
+}
+.pad p{
+	font-size: 18px;
 }
 
 
@@ -62,7 +70,7 @@
 	.inf p{
 		padding: 0 15px;
 	}
-	
+
 	.logo img{
 		width: 320px;
 		margin:0 auto;

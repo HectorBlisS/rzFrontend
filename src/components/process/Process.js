@@ -2,6 +2,7 @@ import React from 'react';
 import './Process.css';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
+import Nav from '../nav/NavContainer';
 import '../../../node_modules/react-joyride/lib/react-joyride-compiled.css';
 //tutorial
 //import jQuery, {$} from 'jquery';
@@ -21,28 +22,18 @@ class Process extends React.Component {
         const {visible} = this.state;
         return (
         	<div className='detras'>
-
-        		<h3 className='tittle'> ¿Cómo fondear?</h3>
-        		<div className='box_process'>
-                    <img  className='img_process' src='https://images.pexels.com/photos/7103/writing-notes-idea-conference.jpg?w=940&h=650&auto=compress&cs=tinysrgb' alt='Proces'/>
-                    <button>
-                        Ver tutorial
-                    </button>
-                    <RaisedButton
-                        style={visible?styles.visible:styles.noVisible}
-                        id="tutorial"
-                        className='btn_tuto'
-                        label="Ver Tutorial"
-                        backgroundColor='#C50090'
-                       labelColor='white'
-
-                    />
-
-                </div>
+                <Nav/>
                 <div className='space'>
+                <h3 className='tittle'> ¿Cómo fondear un proyecto?</h3>
+                <p>En Rocket Found facilitamos la donación a iniciativas <br/>que están generando impacto a través de la tecnología, tu colaborción
+                    puede ser la diferencia.
+                </p>
+                    <br/>
+                    <br/>
+                    <br/>
                 <div className='contenedor'>
                     <div className='content'>
-                        <div className='circle_process azul'>
+                        <div className='circle_process bleu'>
                             <FontIcon className='material-icons icon_p' style={{fontSize:70,color:'white'}}
                             >person_add</FontIcon>
                         </div> 
@@ -54,7 +45,7 @@ class Process extends React.Component {
                         </div>
                     </div> 
                     <div className='content'> 
-                         <div className='circle_process green'>
+                         <div className='circle_process bleu'>
                             <FontIcon className='material-icons icon_p' style={{fontSize:70,color:'white'}}
                             >touch_app</FontIcon>
                         </div> 
@@ -66,7 +57,7 @@ class Process extends React.Component {
                         </div>
                     </div> 
                      <div className='content'>               
-                         <div className='circle_process purple'>
+                         <div className='circle_process bleu'>
                             <FontIcon className='material-icons icon_p' style={{fontSize:70,color:'white'}}
                             >redeem</FontIcon>
                         </div> 
@@ -78,7 +69,7 @@ class Process extends React.Component {
                         </div>
                     </div>
                      <div className='content'>   
-                         <div className='circle_process blue'>
+                         <div className='circle_process bleu'>
                             <FontIcon className='material-icons icon_p' style={{fontSize:70,color:'white'}}
                             >payment</FontIcon>
                         </div> 
@@ -90,7 +81,7 @@ class Process extends React.Component {
                         </div>
                     </div>
                      <div className='content'>   
-                         <div className='circle_process orange'>
+                         <div className='circle_process bleu'>
                             <FontIcon className='material-icons icon_p' style={{fontSize:70,color:' white'}}
                             >chat</FontIcon>
                         </div>

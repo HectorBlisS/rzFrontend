@@ -1,19 +1,21 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <meta name="theme-color" content="#000000">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/cometaicono.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/enjoyhint/3.1.0/enjoyhint.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,16 +27,15 @@
     -->
     <title>Reto Zapopan</title>
 
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/kineticjs/5.2.0/kinetic.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/enjoyhint/3.1.0/enjoyhint.min.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <noscript>
-      You need to enable JavaScript to run this app.
+        You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
     <!--
@@ -49,68 +50,72 @@
     -->
 
     <script>
+        function tuto() {
 
-      function tuto(){
+            var enjoyhint_instance = new EnjoyHint({});
+            var enjoyhint_script_steps = [{
+                    'click #explorar': 'Click aquí para ver los proyectos',
+                    //"showNext" : true,
+                    //"showSkip" : true,
+                    //"nextButton" : {className: "myNext", text: "Siguiente"}
 
-          var enjoyhint_instance = new EnjoyHint({});
-          var enjoyhint_script_steps = [
-              {
-                  'click #explorar' : 'Click aquí para ver los proyectos',
-                  //"showNext" : true,
-                  //"showSkip" : true,
-                  //"nextButton" : {className: "myNext", text: "Siguiente"}
+                },
+                {
+                    'next #filtro': 'Puedes filtrar los proyectos por categoría',
+                    "nextButton": {
+                        className: "myNext",
+                        text: "Siguiente"
+                    }
+                },
+                {
+                    'next #buscar': 'O buscar directamente un proyecto',
+                    "nextButton": {
+                        className: "myNext",
+                        text: "Siguiente"
+                    }
+                },
+                {
+                    'click #card': 'Da clic en algún proyecto',
+                    "showSkip": false,
+                    //"nextButton" : {className: "myNext", text: "Siguiente"}
+                },
+                {
+                    'next #reward': 'Y selecciona una recompensa! ',
+                    "showSkip": false,
+                    "nextButton": {
+                        className: "myNext",
+                        text: "Siguiente"
+                    }
+                },
+                {
+                    'next #explorar': '¡Eso es todo!, estas listo para fondear. ',
+                    "showSkip": false,
+                    "nextButton": {
+                        className: "mySkip",
+                        text: "Terminar"
+                    }
+                }
+            ];
+            enjoyhint_instance.set(enjoyhint_script_steps);
+            enjoyhint_instance.run();
 
-              },
-              {
-                  'next #filtro' : 'Puedes filtrar los proyectos por categoría',
-                  "nextButton" : {className: "myNext", text: "Siguiente"}
-              },
-              {
-                  'next #buscar' : 'O buscar directamente un proyecto',
-                  "nextButton" : {className: "myNext", text: "Siguiente"}
-              },
-              {
-                  'click #card' : 'Da clic en algún proyecto',
-                  "showSkip" : false,
-                  //"nextButton" : {className: "myNext", text: "Siguiente"}
-              },
-              {
-                  'next #reward' : 'Y selecciona una recompensa! ',
-                  "showSkip" : false,
-                  "nextButton" : {className: "myNext", text: "Siguiente"}
-              },
-              {
-                  'next #explorar' : '¡Eso es todo!, estas listo para fondear. ',
-                  "showSkip" : false,
-                  "nextButton" : {className: "mySkip", text: "Terminar"}
-              }
-          ];
-          enjoyhint_instance.set(enjoyhint_script_steps);
-          enjoyhint_instance.run();
-
-      }
-
-
-      $(document).ready(function(){
-//          console.log('perro!!')
-          setTimeout(function(){
-
-              $("#tutorial").click(function(){
-                  tuto();
-              });
-
-          }, 10000);
-      });
+        }
 
 
+        $(document).ready(function () {
+            //          console.log('perro!!')
+            setTimeout(function () {
 
+                $("#tutorial").click(function () {
+                    tuto();
+                });
 
-
-
-
+            }, 10000);
+        });
     </script>
 
 
 
-  </body>
+</body>
+
 </html>

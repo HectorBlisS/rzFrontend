@@ -1,6 +1,5 @@
 import React from 'react';
 import './Slide.css';
-import video from '../../assets/video.mp4';
 import RaisedButton from 'material-ui/RaisedButton';
 import Contador from '../contador/Contador';
 import {Link} from 'react-router-dom';
@@ -26,7 +25,6 @@ class Slide extends React.Component {
             </div>
 
             <video id='bg-video' autoPlay="autoplay" loop  >
-              <source src={video} type="video/mp4" />
             </video>
            </div>
         </div>

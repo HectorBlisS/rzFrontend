@@ -11,11 +11,11 @@ export const ProjectCardDisplay= () => (
         </div>
         <div className="pad">
             <div className="fl info">
-                <img className="icon" src={cometa} alt=""/>
+                <img className="icon_c" src={cometa} alt=""/>
                 <p>Monto recaudado: <strong>$95,000.00</strong></p>
             </div>
             <div className="fl info">
-                <img className="icon" src={bandera} alt=""/>
+                <img className="icon_b" src={bandera} alt="" style={{marginLeft:"5px"}}/>
                 <p>Meta: <strong>$195,000.00</strong></p>
             </div>
             <div className="fl relevantes">

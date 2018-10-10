@@ -1,0 +1,46 @@
+.recompensa_free{
+    margin: 10px 0px;
+    box-sizing: border-box;
+    border:1px solid #DCDEDD;
+    padding: 3% 2%;
+}
+.reward{
+    margin: 10px 0px;
+    border:1px solid #DCDEDD;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+.flotante{
+    display: flex;
+    z-index: 999;
+    position: relative;
+    left:65px;
+    top:-150px;
+    color:transparent;
+    font-size: 30px;
+
+}
+.cubierta{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    padding: 3% 2%;
+    transition: all 1s ease;
+    cursor: pointer;
+
+}
+.reward:hover{
+    border:1px solid #3E84FF;
+}
+.reward:hover .cubierta{
+    background-color: #3E84FF;
+    z-index: 999;
+}
+.reward:hover .txt_card{
+    opacity: .2;
+}
+.reward:hover .flotante{
+    color:white;
+}
+
