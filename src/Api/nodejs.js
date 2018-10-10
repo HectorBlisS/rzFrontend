@@ -1,7 +1,7 @@
 const url = 'https://rocketfund.herokuapp.com';
 
 function handleErrors(response) {
-    console.log(response)
+    //console.log(response)
     if (!response.ok) {
        switch(response.status){
            case 403:
@@ -198,6 +198,29 @@ export const loginWithEmail = (auth) => {
 export const facebookLogin = (access_token) => {
     return fetch(url + '/auth/facebook/token', {
         method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':'Bearer ' + access_token
+        }
+    })
+    // .then(res=>{
+    //     console.log(res)
+    //     if(!res.ok) return Promise.reject(res.json())
+    //     return res.json();
+    // })
+    .then(handleErrors)
+    .then(r=>{
+        console.log(r)
+        saveToken(r.access_token);
+        saveUser(r.user);
+        return r.user;
+    }) 
+};
+
+export const googleLogin = (access_token) => {
+    return fetch(url + '/auth/google/token', {
+        method:'POST',
+        body: JSON.stringify({access_token}),
         headers:{
             'Content-Type':'application/json',
             'Authorization':'Bearer ' + access_token

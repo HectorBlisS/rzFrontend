@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import firebase from '../../Api/firebase';
 import toastr from 'toastr'
 import Nav from '../nav/NavContainer';
+import {loginWithEmail, facebookLogin, googleLogin} from '../../Api/nodejs'
 
 class LoginDisplay extends Component {
     state =
@@ -21,13 +22,28 @@ class LoginDisplay extends Component {
         this.authListener();
         firebase.auth().getRedirectResult()
             .then(result => {
-                if (!result.user) return;
-                console.log(result.user);
-                localStorage.setItem("user", JSON.stringify(result.user));
+                if(!result.credential) return;
+                const {accessToken} = result.credential
+                console.log(result)
+                if(result.credential.providerId === "google.com") return googleLogin(accessToken)
+                else return facebookLogin(accessToken)
+                // if (!result.user) return;
+                // console.log(result.user);
+                // localStorage.setItem("user", JSON.stringify(result.user));
+                // this.props.history.push("/userprofile");
+            })
+            .then(user=>{
+                if(!user) return 
+                toastr.success('Bienvenido ' + user.email);
                 this.props.history.push("/userprofile");
-            }).catch(function (error) {
-                toastr.error(error);
-            });
+            })
+            .catch(e=>{
+                toastr.error(e)
+                console.log(e)
+            })
+            // .catch(function (error) {
+            //     toastr.error(error);
+            // });
     }
 
     authListener = () => {
@@ -42,12 +58,33 @@ class LoginDisplay extends Component {
     }
     loginGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithRedirect(provider);
+        firebase.auth().signInWithRedirect(provider)
+        
+        // .then(user=>{
+        //     toastr.success('Bienvenido ' + user.email);
+        //     this.props.history.push("/userprofile");
+        // })
+        // .catch(e=>{
+        //     toastr.error(e)
+        //     console.log(e)
+        // })
     };
 
     loginFacebook = () => {
         const provider = new firebase.auth.FacebookAuthProvider();
-        firebase.auth().signInWithPopup(provider);
+        firebase.auth().signInWithRedirect(provider)
+        // .then(snap=>{
+        //     const {accessToken} = snap.credential
+        //     return facebookLogin(accessToken)
+        // })
+        // .then(user=>{
+        //     toastr.success('Bienvenido ' + user.email);
+        //     this.props.history.push("/userprofile");
+        // })
+        // .catch(e=>{
+        //     toastr.error(e)
+        //     console.log(e)
+        // })
     }
 
     handleInput = (e) => {
@@ -61,16 +98,27 @@ class LoginDisplay extends Component {
 
     onLogin = (e) => {
         e.preventDefault();
-        const loginData = this.state.loginData;
+        console.log("login")
+        const {loginData} = this.state
+        const auth = {email:loginData.email, password: loginData.pass}
         if (loginData.email && loginData.pass) {
-            firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.pass)
-                .then(user => {
-                    localStorage.setItem('user', JSON.stringify(user));
-                    toastr.success('Bienvenido ' + user.email);
-                    this.props.history.push("/userprofile");
-                }).catch(error => {
-                    toastr.error(error);
-                })
+            loginWithEmail(auth)
+            .then(user=>{
+                toastr.success('Bienvenido ' + user.email);
+                this.props.history.push("/userprofile");
+            })
+            .catch(e=>{
+                toastr.error(e)
+                console.log(e)
+            })
+            // firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.pass)
+            //     .then(user => {
+            //         localStorage.setItem('user', JSON.stringify(user));
+            //         toastr.success('Bienvenido ' + user.email);
+            //         this.props.history.push("/userprofile");
+            //     }).catch(error => {
+            //         toastr.error(error);
+            //     })
         }
         else {
             alert('Los campos no pueden ser vacios.')

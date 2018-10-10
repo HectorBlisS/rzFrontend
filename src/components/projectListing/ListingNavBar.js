@@ -92,7 +92,7 @@ class ListingNavBar extends Component{
 
     setUser = () => {
         const user = JSON.parse(localStorage.getItem('user'))
-        console.log(user)
+        //console.log(user)
         if(user) {
             this.setState({photoURL:user.photoURL, user})
         }else{

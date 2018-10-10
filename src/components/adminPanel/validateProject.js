@@ -7,11 +7,11 @@ import './adminPanelPage.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import ReactMarkdown from 'react-markdown';
 import toastr from 'toastr';
-import {Toolbar, ToolbarGroup, TextField, DatePicker, SelectField, Avatar, Dialog, CardHeader} from 'material-ui'
+import {Toolbar, ToolbarGroup, TextField, DatePicker, SelectField, Avatar, Dialog, CardHeader, MenuItem} from 'material-ui'
 
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import Warn from 'material-ui/svg-icons/action/report-problem';
+//import FloatingActionButton from 'material-ui/FloatingActionButton';
+//import ContentAdd from 'material-ui/svg-icons/content/add';
+//import Warn from 'material-ui/svg-icons/action/report-problem';
 import MainLoader from '../common/MainLoader';
 
 //2018
@@ -34,7 +34,7 @@ class ValidateProject extends Component{
   componentWillMount(){
     getProjectAdmin(this.props.match.params.id)
         .then(project=>{
-                console.log(project);
+                //console.log(project);
                 this.setState({project})
                 this.formatVideo(project.video)
 
@@ -176,13 +176,19 @@ class ValidateProject extends Component{
     project[field] = date
     this.setState({project})
    }
+
+   handleSelect = (field, value) => {
+    const {project} = this.state
+    project[field] = value
+    this.setState({project})
+   }
    
 
   render(){
 
     const {project, video, editingMarkdown, openModal} = this.state
     if(!project) return <MainLoader />
-    const {body='', category, title, owner={}, goal, endDate=new Date(), startDate=new Date(), summary} = project
+    const {status, body='', category, title, owner={}, goal, endDate=new Date(), startDate=new Date(), summary} = project
     if(editingMarkdown) return<div> <MarkdownEditor editMarkdown={this.editMarkdown} onSaveBody={this.saveProject} onChangeBody={this.onChangeBody} body={body} /></div>
     return(
 
@@ -211,7 +217,12 @@ class ValidateProject extends Component{
                 frameBorder="0"
                 allowFullScreen/>
             <button onClick={this.toggleModal} >Cambiar Video</button>
-            <Paper zDepth={4} style={{padding:20}}>
+            <Paper zDepth={4} style={{padding:20, display:'flex', flexDirection:'column', alignItems:'center'}}>
+
+            <Avatar src={owner.photoURL} />
+            <p>{owner.username} - {owner.email}</p>
+  
+
               <h1 style={{margin:0, textAlign:'center'}}>{title}</h1>
               <div
                   style={{display:'flex', flexDirection:'column'}}>
@@ -224,6 +235,16 @@ class ValidateProject extends Component{
               </div>
               <Divider />
               <Paper style={{display:'flex', flexWrap:'wrap'}} >
+                <SelectField 
+                  value={status}
+                  floatingLabelText={"Estado del proyecto"}
+                  onChange={(e,i,v)=>this.handleSelect('status', v)}
+                >
+                  <MenuItem value="DRAFT" >Draft</MenuItem>
+                  <MenuItem value="VALIDATING" >Validating</MenuItem>
+                  <MenuItem value="PUBLISHED" >Published</MenuItem>
+                </SelectField>
+
                 <DatePicker 
                   floatingLabelText="Fecha de inicio"
                   name="startDate"
@@ -248,6 +269,7 @@ class ValidateProject extends Component{
                 />
 
                  <TextField 
+                 multiLine={true}
                   onChange={this.handleText}
                   name="summary"
                   floatingLabelText={"Resumen"}
